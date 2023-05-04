@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.basic_banking_app.ui.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_clientFragment"
+            app:destination="@id/clientFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientFragment"
+        android:name="com.example.basic_banking_app.ui.clients.ClientFragment"
+        android:label="ClientFragment" >
+        <action
+            android:id="@+id/action_clientFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.example.basic_banking_app.ui.transactions.TransactionFragment"
+        android:label="TransactionFragment" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.basic_banking_app.ui.detail.DetailFragment"
+        android:label="DetailFragment">
+    <argument
+        android:name="client"
+        app:argType="com.example.basic_banking_app.data.model.Client" />
+        <action
+            android:id="@+id/action_detailFragment_to_transferFragment2"
+            app:destination="@id/transferFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="com.example.basic_banking_app.ui.trensfer.TransferFragment"
+        android:label="TransferFragment" >
+        <argument
+            android:name="transferor"
+            app:argType="string" />
+
+        <argument
+            android:name="transferor_id"
+            app:argType="integer" />
+
+        <argument
+            android:name="amount"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_transferFragment_to_clientFragment"
+            app:destination="@id/clientFragment"
+            app:popUpTo="@id/clientFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>
