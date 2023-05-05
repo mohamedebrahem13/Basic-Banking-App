@@ -43,7 +43,7 @@ class TransferFragment : Fragment() {
         binding!!.recReceiversList.adapter = clientAdapter
 
         binding?.recReceiversList?.layoutManager = LinearLayoutManager(requireContext())
-        transferViewModel.getAllClients().observe(viewLifecycleOwner) { clients ->
+        transferViewModel.clientlistLivedata.observe(viewLifecycleOwner) { clients ->
             val list = clients.toMutableList()
             list.removeAt(transferorID - 1)
             clientAdapter.submitList(list)

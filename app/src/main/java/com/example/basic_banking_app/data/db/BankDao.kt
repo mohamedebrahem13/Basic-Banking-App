@@ -7,12 +7,13 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.basic_banking_app.data.model.Client
 import com.example.basic_banking_app.data.model.Transaction
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BankDao {
 
     @Query("SELECT * FROM client_table")
-    fun getClients(): LiveData<List<Client>>
+    fun getClients(): Flow<List<Client>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertClients(words : List<Client>)
@@ -43,5 +44,5 @@ interface BankDao {
     }
 
     @Query("SELECT * FROM transaction_table")
-    fun getTransactions(): LiveData<List<Transaction>>
+    fun getTransactions(): Flow<List<Transaction>>
 }

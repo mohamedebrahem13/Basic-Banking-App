@@ -1,6 +1,5 @@
 package com.example.basic_banking_app.ui.trensfer
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,11 +15,19 @@ class TransferViewModel @Inject constructor(private val bankRepository: BankRepo
 
     private val _completeTask = MutableLiveData<Boolean>()
     val completeTask = _completeTask
+    val clientlistLivedata = MutableLiveData< List<Client?>>()
 
-    fun getAllClients(): LiveData<List<Client>> {
-        return bankRepository.getClients()
+    init {
+        getAllClients()
     }
 
+    private fun getAllClients() {
+        viewModelScope.launch {
+            bankRepository.getClients().collect {
+                clientlistLivedata.value = it
+            }
+        }
+    }
 
     fun insertTransaction(amount:Double,transferor:String,client:Client){
         val transaction = Transaction(System.currentTimeMillis(), transferor, client.name, amount)
