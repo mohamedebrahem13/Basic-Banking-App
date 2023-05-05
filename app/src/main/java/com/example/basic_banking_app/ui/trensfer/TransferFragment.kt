@@ -69,7 +69,6 @@ class TransferFragment : Fragment() {
         return binding!!.root    }
 
     fun insertTransaction(client: Client) {
-        val transaction = Transaction(System.currentTimeMillis(), transferor, client.name, amount.toDouble())
-        transferViewModel.insertTransaction(transaction)
+        transferViewModel.insertTransaction(amount.toDouble(),transferor,client)
     }
 }

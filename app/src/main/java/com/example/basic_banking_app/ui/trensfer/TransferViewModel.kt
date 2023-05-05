@@ -21,7 +21,9 @@ class TransferViewModel @Inject constructor(private val bankRepository: BankRepo
         return bankRepository.getClients()
     }
 
-    fun insertTransaction(transaction: Transaction){
+
+    fun insertTransaction(amount:Double,transferor:String,client:Client){
+        val transaction = Transaction(System.currentTimeMillis(), transferor, client.name, amount)
         viewModelScope.launch {
             val insertionResult = bankRepository.insertTransactionAndUpdate(transaction)
             if((insertionResult.getOrDefault(-1) > 0)){
