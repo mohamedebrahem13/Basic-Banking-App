@@ -30,7 +30,7 @@ class ClientFragment : Fragment() {
         binding!!.recyclerView.adapter = clientAdapter
 
         // Observing the client liveData and submit any change to the adapter.
-        mainViewModel.clientlistLivedata.observe(viewLifecycleOwner) { clients ->
+        mainViewModel.clientListLivedata.observe(viewLifecycleOwner) { clients ->
             clientAdapter.submitList(clients)
         }
         mainViewModel.detailedClient.observe(viewLifecycleOwner) { client ->

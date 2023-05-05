@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.basic_banking_app.R
 import com.example.basic_banking_app.data.model.Client
 import com.example.basic_banking_app.databinding.FragmentDetailBinding
 
@@ -47,7 +48,7 @@ class DetailFragment : Fragment() {
         editAmount.setRawInputType(Configuration.KEYBOARD_12KEY)
         editAmount.hint = "Amount"
         editAmount.setSingleLine()
-        alert.setTitle("Enter Amount")
+        alert.setTitle(getString(R.string.EnterAmount))
         alert.setView(editAmount)
 
         alert.setPositiveButton("OK") { dialog, which -> }
@@ -62,12 +63,12 @@ class DetailFragment : Fragment() {
                 override fun onClick(v: View?) {
                     val amountString: String = editAmount.text.toString().trim()
                     if (amountString.isEmpty()) {
-                        editAmount.error = "Amount can not be empty"
+                        editAmount.error = getString(R.string.AnountCanNotBeEmpty)
                         return
                     } else {
                         val amount: Double = amountString.toDouble()
                         if (amount > currentClient.balance){
-                            editAmount.error = "You do not have enough balance"
+                            editAmount.error = getString(R.string.YouDoNotHaveEnophBalance)
                             return
                         }
                         findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToTransferFragment2(currentClient.name,currentClient.client_id, amount.toFloat()))

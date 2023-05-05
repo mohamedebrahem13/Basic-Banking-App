@@ -43,7 +43,7 @@ class TransferFragment : Fragment() {
         binding!!.recReceiversList.adapter = clientAdapter
 
         binding?.recReceiversList?.layoutManager = LinearLayoutManager(requireContext())
-        transferViewModel.clientlistLivedata.observe(viewLifecycleOwner) { clients ->
+        transferViewModel.clientListLivedata.observe(viewLifecycleOwner) { clients ->
             val list = clients.toMutableList()
             list.removeAt(transferorID - 1)
             clientAdapter.submitList(list)
@@ -51,7 +51,7 @@ class TransferFragment : Fragment() {
 
         transferViewModel.completeTask.observe(viewLifecycleOwner) { isTaskCompleted ->
             if (isTaskCompleted == true) {
-                Toast.makeText(requireContext(), "Transaction Successfully Completed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.SuccessfullyCompleted), Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_transferFragment_to_clientFragment)
             }
         }

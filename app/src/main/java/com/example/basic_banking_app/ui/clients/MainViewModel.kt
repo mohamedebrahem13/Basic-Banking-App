@@ -15,7 +15,7 @@ class MainViewModel @Inject constructor(private val bankRepository: BankReposito
     private val _detailedClient = MutableLiveData<Client?>()
     val detailedClient: LiveData<Client?> get() = _detailedClient
 
-     val clientlistLivedata = MutableLiveData< List<Client?>>()
+     val clientListLivedata = MutableLiveData< List<Client?>>()
 
     init {
         getAllClients()
@@ -34,10 +34,10 @@ class MainViewModel @Inject constructor(private val bankRepository: BankReposito
 
 
 
-    fun getAllClients() {
+    private fun getAllClients() {
         viewModelScope.launch {
             bankRepository.getClients().collect{
-                clientlistLivedata.value=it
+                clientListLivedata.value=it
             }
         }
 

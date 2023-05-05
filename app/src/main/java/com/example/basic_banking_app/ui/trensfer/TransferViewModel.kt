@@ -15,7 +15,7 @@ class TransferViewModel @Inject constructor(private val bankRepository: BankRepo
 
     private val _completeTask = MutableLiveData<Boolean>()
     val completeTask = _completeTask
-    val clientlistLivedata = MutableLiveData< List<Client?>>()
+    val clientListLivedata = MutableLiveData< List<Client?>>()
 
     init {
         getAllClients()
@@ -24,7 +24,7 @@ class TransferViewModel @Inject constructor(private val bankRepository: BankRepo
     private fun getAllClients() {
         viewModelScope.launch {
             bankRepository.getClients().collect {
-                clientlistLivedata.value = it
+                clientListLivedata.value = it
             }
         }
     }
