@@ -29,11 +29,11 @@ class ClientFragment : Fragment() {
 
         binding!!.recyclerView.adapter = clientAdapter
 
-        // Observing the customers liveData and submit any change to the adapter.
+        // Observing the client liveData and submit any change to the adapter.
         mainViewModel.getAllClients().observe(viewLifecycleOwner) { clients ->
             clientAdapter.submitList(clients)
         }
-        mainViewModel.detailedCustomer.observe(viewLifecycleOwner) { client ->
+        mainViewModel.detailedClient.observe(viewLifecycleOwner) { client ->
             client?.let { it ->
                 this.findNavController().navigate(
                     ClientFragmentDirections.actionClientFragmentToDetailFragment(it)

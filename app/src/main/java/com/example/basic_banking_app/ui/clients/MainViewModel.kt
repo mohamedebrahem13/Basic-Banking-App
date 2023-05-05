@@ -10,18 +10,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val bankRepository: BankRepository) : ViewModel() {
-    private val _detailedCustomer = MutableLiveData<Client?>()
-    val detailedCustomer: LiveData<Client?> get() = _detailedCustomer
+    private val _detailedClient = MutableLiveData<Client?>()
+    val detailedClient: LiveData<Client?> get() = _detailedClient
 
-    // Save the value of the customer clicked to be observed later.
+    // Save the value of the clicked client to be observed later.
     fun onClientClicked(Client: Client) {
-        _detailedCustomer.value = Client
+        _detailedClient.value = Client
     }
 
-    // Event for navigating to detailedCustomerFragment successfully and make the value
-    // of _detailedCustomer null.
+    // Event for navigating to detailedFragment successfully and make the value
+    // of _detailedClient null.
     fun doneNavigating() {
-        _detailedCustomer.value = null
+        _detailedClient.value = null
     }
 
 
