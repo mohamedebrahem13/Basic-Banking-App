@@ -1,20 +1,18 @@
 package com.example.basic_banking_app.ui.trensfer
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basic_banking_app.R
 import com.example.basic_banking_app.data.model.Client
-import com.example.basic_banking_app.data.model.Transaction
 import com.example.basic_banking_app.databinding.FragmentTransferBinding
 import com.example.basic_banking_app.ui.clients.ClientAdapter
-import com.example.basic_banking_app.ui.detail.DetailFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -68,7 +66,7 @@ class TransferFragment : Fragment() {
         binding = FragmentTransferBinding.inflate(inflater, container, false)
         return binding!!.root    }
 
-    fun insertTransaction(client: Client) {
+    private fun insertTransaction(client: Client) {
         transferViewModel.insertTransaction(amount.toDouble(),transferor,client)
     }
 }
