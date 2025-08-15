@@ -7,7 +7,7 @@ The Basic Banking App is an Android mobile application built using Kotlin, MVVM 
     <img src="https://github.com/user-attachments/assets/13954c6c-ef15-4e97-ba6c-339fd30a4f25"
          alt="CineVerse Logo"
          width="50"
-         style="vertical-align: middle; margin-top: 20px;" />
+         style="vertical-align: middle; margin-top: 50px;" />
     CineVerse – Where Every Story Finds Its Star
   </h1>
 </div>
