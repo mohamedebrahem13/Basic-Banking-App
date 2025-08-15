@@ -129,6 +129,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+# <img src="https://github.com/user-attachments/assets/13954c6c-ef15-4e97-ba6c-339fd30a4f25"
+       alt="CineVerse Logo"
+       width="50"
+       style="position: relative; top: 8px; margin-right: 8px;" />
+  CineVerse – Where Every Story Finds Its Star
+## ![Image](https://github.com/user-attachments/assets/13954c6c-ef15-4e97-ba6c-339fd30a4f25) Download Cineverse APK
 
 How It Works
 1. Saving Transactions
