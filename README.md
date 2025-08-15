@@ -2,6 +2,16 @@ Basic Banking App Documentation
 Overview
 The Basic Banking App is an Android mobile application built using Kotlin, MVVM architecture, Room Database, Dagger Hilt for dependency injection, and StateFlow and SharedFlow for efficient data flow handling. The app enables users to perform banking transactions, view transaction details, and track transaction history. The data is persisted using Room Database, allowing users to access transaction records even when offline.
 
+<div align="center">
+  <h1>
+    <img src="https://github.com/user-attachments/assets/13954c6c-ef15-4e97-ba6c-339fd30a4f25"
+         alt="CineVerse Logo"
+         width="50"
+         style="vertical-align: middle; margin-right: 8px;" />
+    CineVerse – Where Every Story Finds Its Star
+  </h1>
+</div>
+
 This repository provides the full implementation of the app, including:
 
 Transaction Management (Transfer Money)
@@ -129,13 +139,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-# <img src="https://github.com/user-attachments/assets/13954c6c-ef15-4e97-ba6c-339fd30a4f25"
-       alt="CineVerse Logo"
-       width="50"
-       style="position: relative; top: 8px; margin-right: 8px;" />
-  CineVerse – Where Every Story Finds Its Star
-## ![Image](https://github.com/user-attachments/assets/13954c6c-ef15-4e97-ba6c-339fd30a4f25) Download Cineverse APK
-
 How It Works
 1. Saving Transactions
 When a user initiates a transaction, the TransactionViewModel calls the repository to insert the transaction into the Room database. After inserting, the transaction list is updated using StateFlow.
